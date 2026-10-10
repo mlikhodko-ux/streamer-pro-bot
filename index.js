@@ -2,7 +2,7 @@ const { Telegraf } = require('telegraf');
 
 const BOT_TOKEN = process.env.BOT_TOKEN || '8917836890:AAG3y8PaAHOOrMVRFD5dP2u4MquPDdXJ9XM';
 const ADMIN_ID  = process.env.ADMIN_ID  || ''; // твой Telegram user_id
-const APP_URL   = 'https://stream-pro-e8b16.web.app/admin';
+const APP_URL   = 'https://stream-pro-e8b16.web.app/';
 
 const bot = new Telegraf(BOT_TOKEN);
 
