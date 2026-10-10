@@ -11,13 +11,17 @@ let videoNoteFileId = process.env.VIDEO_NOTE_FILE_ID || '';
 
 // ─── /start ───────────────────────────────────────────────────────────────
 bot.start(async (ctx) => {
-  try {
-    // Шлём кружочек если он задан
-    if (videoNoteFileId) {
+  // Шлём кружочек если он задан (ошибка не убивает приветствие)
+  if (videoNoteFileId) {
+    try {
       await ctx.sendVideoNote(videoNoteFileId);
+    } catch (vidErr) {
+      console.error('Ошибка sendVideoNote:', vidErr.message);
     }
+  }
 
-    // Приветствие + кнопка
+  // Приветствие + кнопка
+  try {
     await ctx.reply(
       'Привет! Добро пожаловать в Streamer Pro. Выбери что тебя интересует:',
       {
@@ -29,7 +33,7 @@ bot.start(async (ctx) => {
       }
     );
   } catch (err) {
-    console.error('Ошибка /start:', err.message);
+    console.error('Ошибка /start reply:', err.message);
   }
 });
 
