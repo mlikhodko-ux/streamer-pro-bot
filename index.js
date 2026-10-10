@@ -23,7 +23,7 @@ bot.start(async (ctx) => {
       {
         reply_markup: {
           inline_keyboard: [[
-            { text: '🚀 Зайти в приложение', url: APP_URL }
+            { text: '🚀 Зайти в приложение', web_app: { url: APP_URL } }
           ]]
         }
       }
